@@ -144,7 +144,8 @@
             <input
                 type="number"
                 id="avgQuantity"
-                inputmode="numeric"
+                inputmode="decimal"
+                pattern="[0-9]*"
                 placeholder="Enter quantity of shares"
             />
 
@@ -152,7 +153,8 @@
             <input
                 type="number"
                 id="avgPrice"
-                inputmode="numeric"
+                inputmode="decimal"
+                pattern="[0-9]*"
                 placeholder="Enter price per share"
             />
 
@@ -166,7 +168,8 @@
             <input
                 type="number"
                 id="quantity"
-                inputmode="numeric"
+                inputmode="decimal"
+                pattern="[0-9]*"
                 placeholder="Enter quantity of shares"
             />
 
@@ -174,7 +177,8 @@
             <input
                 type="number"
                 id="buyPrice"
-                inputmode="numeric"
+                inputmode="decimal"
+                pattern="[0-9]*"
                 placeholder="Enter buy price per share"
             />
 
@@ -182,7 +186,8 @@
             <input
                 type="number"
                 id="sellPrice"
-                inputmode="numeric"
+                inputmode="decimal"
+                pattern="[0-9]*"
                 placeholder="Enter sell price per share"
             />
 
@@ -196,7 +201,8 @@
             <input
                 type="number"
                 id="intradayQuantity"
-                inputmode="numeric"
+                inputmode="decimal"
+                pattern="[0-9]*"
                 placeholder="Enter quantity of shares"
             />
 
@@ -204,7 +210,8 @@
             <input
                 type="number"
                 id="intradayBuyPrice"
-                inputmode="numeric"
+                inputmode="decimal"
+                pattern="[0-9]*"
                 placeholder="Enter buy price per share"
             />
 
@@ -212,11 +219,11 @@
             <input
                 type="number"
                 id="intradaySellPrice"
-                inputmode="numeric"
+                inputmode="decimal"
+                pattern="[0-9]*"
                 placeholder="Enter sell price per share"
             />
 
-            <!-- Fallback button for Quick Look -->
             <button id="calculateButton" onclick="calculateAll()">
                 Calculate
             </button>
@@ -236,7 +243,6 @@
                 const calculateButton =
                     document.getElementById("calculateButton");
 
-                // Try to add auto-calculation
                 let autoCalculationWorks = true;
                 try {
                     avgInputs.forEach((id) =>
@@ -258,7 +264,6 @@
                     autoCalculationWorks = false;
                 }
 
-                // Show button if auto-calculation fails
                 if (!autoCalculationWorks) {
                     calculateButton.style.display = "block";
                 }
