@@ -12,7 +12,7 @@ Mobile-Friendly: Optimized for use on smartphones and tablets.
 Installable: Add the app to your device’s home screen for quick access.
 Live Demo
 
-Try the app here: Trading Calculator
+Try the app here: [Trading Calculator](https://chaturnak.github.io/TCalac/)
 
 How It Works
 
