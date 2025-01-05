@@ -1,0 +1,20 @@
+{
+  "name": "Trading Calculator",
+  "short_name": "TCalac",
+  "description": "A Progressive Web App for trading calculations",
+  
+  "scope": "/TCalac/",
+  "start_url": "/TCalac/",
+  
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "display": "standalone",
+  
+  "icons": [
+    {
+      "src": "/TCalac/icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
