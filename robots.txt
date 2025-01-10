@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chaturnak.github.io/TCalac/sitemap.xml
