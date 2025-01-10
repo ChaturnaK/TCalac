@@ -15,10 +15,7 @@ A Progressive Web App (PWA) designed specifically for the Sri Lankan stock marke
 - Mobile-Friendly: 	Optimized for smartphones and tablets.
 - Installable: 		Add the app to your device’s home screen for quick access.
 
-# Live Demo
-
 # Try the app here: [Trading Calculator CSE](https://chaturnak.github.io/TCalac/)
-
 
 ## How It Works
 1.	Select the desired calculator (e.g., Average Share Price or What-If Calculator).
