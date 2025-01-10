@@ -4,7 +4,7 @@ A Progressive Web App (PWA) designed specifically for the Sri Lankan stock marke
 
 ## Features
 
-- Average Share Price Calculator: Calculate the average price of shares purchased, including fees applicable in the Sri Lankan stock market.
+- Average Share Price Calculator: 	Calculate the average price of shares purchased, including fees applicable in the Sri Lankan stock market.
 - What-If Share Calculator: 		Simulate profit/loss scenarios for buying and selling shares on the CSE.
 - Intraday Trading Calculator: 		Evaluate intraday trading profit/loss with Colombo Stock Exchange’s specific fee structures.
 - Shares You Can Buy: 			Calculate the number of shares you can purchase with a given amount of money.
@@ -18,7 +18,7 @@ A Progressive Web App (PWA) designed specifically for the Sri Lankan stock marke
 # Try the app here: [Trading Calculator CSE](https://chaturnak.github.io/TCalac/)
 
 ## How It Works
-1.	Select the desired calculator (e.g., Average Share Price or What-If Calculator).
+1.	Select the calculator (e.g., Average Share Price or What-If Calculator).
 2.	Enter the required values (e.g., quantity, buy price, sell price, etc.).
 3.	Instantly view the calculated results, including costs, fees, and potential profits.
 
