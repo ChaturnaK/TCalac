@@ -1,235 +1,403 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Basic Meta Tags -->
-    <meta name="description" content="Trading Calculator - A PWA for calculating share prices, profits, and intraday trading stats." />
-    <meta name="keywords" content="Trading Calculator, Share Prices, Profit Calculator, Intraday Trading, PWA, GitHub Pages" />
-    <meta name="author" content="Your Name" />
-
-    <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="Trading Calculator" />
-    <meta property="og:description" content="A PWA for calculating share prices and profits." />
-    <meta property="og:url" content="https://chaturnak.github.io/TCalac/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://chaturnak.github.io/TCalac/icons/icon-512x512.png" />
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Trading Calculator" />
-    <meta name="twitter:description" content="A PWA for calculating share prices and profits." />
-    <meta name="twitter:image" content="https://chaturnak.github.io/TCalac/icons/icon-512x512.png" />
-    
-    <title>Trading Calculator - A Comprehensive Share Price Calculato</title>
-    <link rel="canonical" href="https://chaturnak.github.io/TCalac/" />
-  
-  <!-- Manifest Link -->
-  <link rel="manifest" href="/TCalac/manifest.webmanifest">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: white;
-        }
-
-        .container {
-            max-width: 90%;
-            margin: 20px auto;
-            padding: 20px;
-            background: #1e1e1e;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        label {
-            font-weight: bold;
-            margin-top: 15px;
-            display: block;
-            font-size: 1rem;
-            color: white;
-        }
-
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #333;
-            border-radius: 4px;
-            background: #2b2b2b;
-            color: white;
-            font-size: 1rem;
-        }
-
-        input[type="number"]::-webkit-outer-spin-button,
-        input[type="number"]::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        input[type="number"] {
-            -moz-appearance: textfield;
-        }
-
-        button {
-            display: none;
-            width: 100%;
-            padding: 10px;
-            background: #ffcc00;
-            color: black;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background: #e6b800;
-        }
-
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            background: #2e2e2e;
-            border-radius: 4px;
-            font-size: 0.95rem;
-        }
-
-        .result p {
-            margin: 8px 0;
-            color: white;
-        }
-
-        .result span {
-            font-weight: bold;
-            color: #ffcc00;
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: #444;
-            margin: 15px 0;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            h2 {
-                font-size: 1.2rem;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trading Calculator</title>
+        <link rel="canonical" href="https://chaturnak.github.io/TCalac/" />
+        <link rel="manifest" href="/TCalac/manifest.webmanifest" />
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #121212;
+                color: white;
             }
-
-            input[type="number"] {
-                font-size: 0.9rem;
-            }
-
-            .result {
-                font-size: 0.85rem;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
             .container {
-                padding: 15px;
+                max-width: 90%;
+                margin: 20px auto;
+                padding: 20px;
+                background: #1e1e1e;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             }
-
             h2 {
+                text-align: center;
+                font-size: 1.5rem;
+                color: white;
+            }
+            label {
+                font-weight: bold;
+                margin-top: 15px;
+                display: block;
+                font-size: 1rem;
+                color: white;
+            }
+            input[type="number"] {
+                width: 100%;
+                padding: 10px;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                border: 1px solid #333;
+                border-radius: 4px;
+                background: #2b2b2b;
+                color: white;
                 font-size: 1rem;
             }
-
+            input[type="number"]::-webkit-outer-spin-button,
+            input[type="number"]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
             input[type="number"] {
-                padding: 8px;
-                font-size: 0.85rem;
+                -moz-appearance: textfield;
             }
-
+            button {
+                width: 200px;
+                padding: 10px;
+                background: #ffcc00;
+                color: black;
+                border: none;
+                border-radius: 4px;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            button:hover {
+                background: #e6b800;
+            }
             .result {
-                font-size: 0.8rem;
+                margin-top: 20px;
+                padding: 15px;
+                background: #2e2e2e;
+                border-radius: 4px;
+                font-size: 0.95rem;
             }
-        }
-    </style>
-</head>
+            .result p {
+                margin: 8px 0;
+                color: white;
+            }
+            .result span {
+                font-weight: bold;
+                color: #ffcc00;
+            }
+            hr {
+                border: 0;
+                height: 1px;
+                background: #444;
+                margin: 15px 0;
+            }
+            /* Responsive Design */
+            @media screen and (max-width: 768px) {
+                h2 {
+                    font-size: 1.2rem;
+                }
+                input[type="number"] {
+                    font-size: 0.9rem;
+                }
+                .result {
+                    font-size: 0.85rem;
+                }
+            }
+            @media screen and (max-width: 480px) {
+                .container {
+                    padding: 15px;
+                }
+                h2 {
+                    font-size: 1rem;
+                }
+                input[type="number"] {
+                    padding: 8px;
+                    font-size: 0.85rem;
+                }
+                .result {
+                    font-size: 0.8rem;
+                }
+                button {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Average Share Price Calculator -->
+        <div class="container">
+            <h2>Average Share Price Calculator</h2>
+            <label for="avgQuantity">Quantity of Shares:</label>
+            <input
+                type="number"
+                id="avgQuantity"
+                step="1"
+                placeholder="Enter quantity of shares"
+            />
+            <label for="avgPrice">Price per Share (Rs.):</label>
+            <input
+                type="number"
+                id="avgPrice"
+                step="0.01"
+                placeholder="Enter price per share"
+            />
+            <div class="result" id="avgResult" aria-live="polite"></div>
+        </div>
 
-<body>
-    <!-- Average Share Price Calculator -->
-    <div class="container">
-        <h2>Average Share Price Calculator</h2>
-        <label for="avgQuantity">Quantity of Shares:</label>
-        <input type="number" id="avgQuantity" inputmode="decimal" pattern="[0-9]*" step="1"
-            placeholder="Enter quantity of shares" />
+        <!-- What-If Share Calculator -->
+        <div class="container">
+            <h2>What-If Share Calculator</h2>
+            <label for="quantity">Quantity of Shares:</label>
+            <input
+                type="number"
+                id="quantity"
+                step="1"
+                placeholder="Enter quantity of shares"
+            />
+            <label for="buyPrice">Buy Price per Share (Rs.):</label>
+            <input
+                type="number"
+                id="buyPrice"
+                step="0.01"
+                placeholder="Enter buy price per share"
+            />
+            <label for="sellPrice">Sell Price per Share (Rs.):</label>
+            <input
+                type="number"
+                id="sellPrice"
+                step="0.01"
+                placeholder="Enter sell price per share"
+            />
+            <button
+                id="zeroLossWhatIfButton"
+                onclick="zeroLossWhatIf()"
+                title="Adjust sell price to break even based on input values"
+            >
+                Zero Loss
+            </button>
+            <div class="result" id="whatIfResult" aria-live="polite"></div>
+        </div>
 
-        <label for="avgPrice">Price per Share (Rs.):</label>
-        <input type="number" id="avgPrice" inputmode="decimal" pattern="[0-9]*" step="0.01"
-            placeholder="Enter price per share" />
+        <!-- Intraday Trading Calculator -->
+        <div class="container">
+            <h2>Intraday Trading Calculator</h2>
+            <label for="intradayQuantity">Quantity of Shares:</label>
+            <input
+                type="number"
+                id="intradayQuantity"
+                step="1"
+                placeholder="Enter quantity of shares"
+            />
+            <label for="intradayBuyPrice">Buy Price per Share (Rs.):</label>
+            <input
+                type="number"
+                id="intradayBuyPrice"
+                step="0.01"
+                placeholder="Enter buy price per share"
+            />
+            <label for="intradaySellPrice">Sell Price per Share (Rs.):</label>
+            <input
+                type="number"
+                id="intradaySellPrice"
+                step="0.01"
+                placeholder="Enter sell price per share"
+            />
+            <button
+                id="zeroLossIntradayButton"
+                onclick="zeroLossIntraday()"
+                title="Adjust sell price to break even for intraday trades"
+            >
+                Zero Loss
+            </button>
+            <div class="result" id="intradayResult" aria-live="polite"></div>
+        </div>
 
-        <div class="result" id="avgResult"></div>
-    </div>
+        <script>
+            // Utility Functions
+            const feeRate = 1.12;
+            const stlRate = 0.3;
 
-    <!-- What-If Share Calculator -->
-    <div class="container">
-        <h2>What-If Share Calculator</h2>
-        <label for="quantity">Quantity of Shares:</label>
-        <input type="number" id="quantity" inputmode="decimal" pattern="[0-9]*" step="1"
-            placeholder="Enter quantity of shares" />
+            function calculateTotalBuyCost(quantity, price, fee) {
+                const buyValue = quantity * price;
+                return buyValue + (fee / 100) * buyValue;
+            }
 
-        <label for="buyPrice">Buy Price per Share (Rs.):</label>
-        <input type="number" id="buyPrice" inputmode="decimal" pattern="[0-9]*" step="0.01"
-            placeholder="Enter buy price per share" />
+            function calculateNewSellPrice(
+                totalBuyCost,
+                quantity,
+                fee,
+                isIntraday = false,
+            ) {
+                const applicableRate = isIntraday ? stlRate : fee;
+                return totalBuyCost / (quantity * (1 - applicableRate / 100));
+            }
 
-        <label for="sellPrice">Sell Price per Share (Rs.):</label>
-        <input type="number" id="sellPrice" inputmode="decimal" pattern="[0-9]*" step="0.01"
-            placeholder="Enter sell price per share" />
+            // Calculation Functions
+            function calculateAverage() {
+                const quantity =
+                    parseFloat(document.getElementById("avgQuantity").value) ||
+                    0;
+                const price =
+                    parseFloat(document.getElementById("avgPrice").value) || 0;
+                if (quantity <= 0 || price <= 0) {
+                    document.getElementById("avgResult").innerHTML =
+                        `<p style="color: red;">Please enter valid values.</p>`;
+                    return;
+                }
+                const totalCost = calculateTotalBuyCost(
+                    quantity,
+                    price,
+                    feeRate,
+                );
+                const orderValue = quantity * price;
+                const fees = orderValue * (feeRate / 100);
+                const avgPrice = totalCost / quantity;
+                document.getElementById("avgResult").innerHTML = `
+        <p>Order Value: <span>Rs. ${orderValue.toFixed(2)}</span></p>
+        <p>Fees: <span>Rs. ${fees.toFixed(2)}</span></p>
+        <p>Total Cost: <span>Rs. ${totalCost.toFixed(2)}</span></p>
+        <p>Average Price: <span>Rs. ${avgPrice.toFixed(2)}</span></p>`;
+            }
 
-        <div class="result" id="whatIfResult"></div>
-    </div>
+            function calculateWhatIf() {
+                const quantity =
+                    parseFloat(document.getElementById("quantity").value) || 0;
+                const buyPrice =
+                    parseFloat(document.getElementById("buyPrice").value) || 0;
+                const sellPrice =
+                    parseFloat(document.getElementById("sellPrice").value) || 0;
+                if (quantity <= 0 || buyPrice <= 0 || sellPrice <= 0) {
+                    document.getElementById("whatIfResult").innerHTML =
+                        `<p style="color: red;">Please enter valid values.</p>`;
+                    return;
+                }
+                const totalBuyCost = calculateTotalBuyCost(
+                    quantity,
+                    buyPrice,
+                    feeRate,
+                );
+                const buyValue = quantity * buyPrice;
+                const sellValue = quantity * sellPrice;
+                const buyFees = buyValue * (feeRate / 100);
+                const sellFees = sellValue * (feeRate / 100);
+                const totalSellProceeds = sellValue - sellFees;
+                const avgBuyPrice = totalBuyCost / quantity;
+                const avgSellPrice = totalSellProceeds / quantity;
+                const profitLoss = totalSellProceeds - totalBuyCost;
 
-    <!-- Intraday Trading Calculator -->
-    <div class="container">
-        <h2>Intraday Trading Calculator</h2>
-        <label for="intradayQuantity">Quantity of Shares:</label>
-        <input type="number" id="intradayQuantity" inputmode="decimal" pattern="[0-9]*" step="1"
-            placeholder="Enter quantity of shares" />
+                document.getElementById("whatIfResult").innerHTML = `
+        <p>Buy Value: <span>Rs. ${buyValue.toFixed(2)}</span></p>
+        <p>Total Buy Cost: <span>Rs. ${totalBuyCost.toFixed(2)}</span></p>
+        <p>Avg Bought Price: <span>Rs. ${avgBuyPrice.toFixed(2)}</span></p>
+        <p>Sell Value: <span>Rs. ${sellValue.toFixed(2)}</span></p>
+        <p>Total Sell Proceeds: <span>Rs. ${totalSellProceeds.toFixed(2)}</span></p>
+        <p>Avg Sold Price: <span>Rs. ${avgSellPrice.toFixed(2)}</span></p>
+        <p><strong>Profit/Loss:</strong> <span>Rs. ${profitLoss.toFixed(2)}</span></p>`;
+            }
 
-        <label for="intradayBuyPrice">Buy Price per Share (Rs.):</label>
-        <input type="number" id="intradayBuyPrice" inputmode="decimal" pattern="[0-9]*" step="0.01"
-            placeholder="Enter buy price per share" />
+            function calculateIntraday() {
+                const quantity =
+                    parseFloat(
+                        document.getElementById("intradayQuantity").value,
+                    ) || 0;
+                const buyPrice =
+                    parseFloat(
+                        document.getElementById("intradayBuyPrice").value,
+                    ) || 0;
+                const sellPrice =
+                    parseFloat(
+                        document.getElementById("intradaySellPrice").value,
+                    ) || 0;
+                if (quantity <= 0 || buyPrice <= 0 || sellPrice <= 0) {
+                    document.getElementById("intradayResult").innerHTML =
+                        `<p style="color: red;">Please enter valid values.</p>`;
+                    return;
+                }
+                const buyValue = quantity * buyPrice;
+                const sellValue = quantity * sellPrice;
+                const applicableFees = buyValue * (feeRate / 100);
+                const stlFee = sellValue * (stlRate / 100);
+                const totalBuyCost = buyValue + applicableFees;
+                const totalSellProceeds = sellValue - stlFee;
+                const avgBuyPrice = totalBuyCost / quantity;
+                const avgSellPrice = totalSellProceeds / quantity;
+                const intradayProfitLoss = totalSellProceeds - totalBuyCost;
 
-        <label for="intradaySellPrice">Sell Price per Share (Rs.):</label>
-        <input type="number" id="intradaySellPrice" inputmode="decimal" pattern="[0-9]*" step="0.01"
-            placeholder="Enter sell price per share" />
+                document.getElementById("intradayResult").innerHTML = `
+        <p>Buy Value: <span>Rs. ${buyValue.toFixed(2)}</span></p>
+        <p>Sell Value: <span>Rs. ${sellValue.toFixed(2)}</span></p>
+        <p>Applicable Fees (once): <span>Rs. ${applicableFees.toFixed(2)}</span></p>
+        <p>Share Transaction Levy (STL): <span>Rs. ${stlFee.toFixed(2)}</span></p>
+        <p>Total Buy Cost: <span>Rs. ${totalBuyCost.toFixed(2)}</span></p>
+        <p>Total Sell Proceeds: <span>Rs. ${totalSellProceeds.toFixed(2)}</span></p>
+        <p>Average Bought Price: <span>Rs. ${avgBuyPrice.toFixed(2)}</span></p>
+        <p>Average Sold Price: <span>Rs. ${avgSellPrice.toFixed(2)}</span></p>
+        <p><strong>Profit/Loss:</strong> <span>Rs. ${intradayProfitLoss.toFixed(2)}</span></p>`;
+            }
 
-        <button id="calculateButton" onclick="calculateAll()">
-            Calculate
-        </button>
+            // Zero Loss Functions
+            function zeroLossWhatIf() {
+                const quantity =
+                    parseFloat(document.getElementById("quantity").value) || 0;
+                const buyPrice =
+                    parseFloat(document.getElementById("buyPrice").value) || 0;
+                if (quantity <= 0 || buyPrice <= 0) {
+                    alert("Please enter valid quantity and buy price first.");
+                    return;
+                }
+                const totalBuyCost = calculateTotalBuyCost(
+                    quantity,
+                    buyPrice,
+                    feeRate,
+                );
+                const newSellPrice = calculateNewSellPrice(
+                    totalBuyCost,
+                    quantity,
+                    feeRate,
+                    false,
+                );
+                document.getElementById("sellPrice").value =
+                    newSellPrice.toFixed(2);
+                calculateWhatIf();
+            }
 
-        <div class="result" id="intradayResult"></div>
-    </div>
+            function zeroLossIntraday() {
+                const quantity =
+                    parseFloat(
+                        document.getElementById("intradayQuantity").value,
+                    ) || 0;
+                const buyPrice =
+                    parseFloat(
+                        document.getElementById("intradayBuyPrice").value,
+                    ) || 0;
+                if (quantity <= 0 || buyPrice <= 0) {
+                    alert("Please enter valid quantity and buy price first.");
+                    return;
+                }
+                const totalBuyCost = calculateTotalBuyCost(
+                    quantity,
+                    buyPrice,
+                    feeRate,
+                );
+                const newSellPrice = calculateNewSellPrice(
+                    totalBuyCost,
+                    quantity,
+                    stlRate,
+                    true,
+                );
+                document.getElementById("intradaySellPrice").value =
+                    newSellPrice.toFixed(2);
+                calculateIntraday();
+            }
 
-    <script>
-        window.onload = function () {
-            const avgInputs = ["avgQuantity", "avgPrice"];
-            const whatIfInputs = ["quantity", "buyPrice", "sellPrice"];
-            const intradayInputs = [
-                "intradayQuantity",
-                "intradayBuyPrice",
-                "intradaySellPrice",
-            ];
-            const calculateButton =
-                document.getElementById("calculateButton");
+            // Event Listeners
+            window.onload = () => {
+                const avgInputs = ["avgQuantity", "avgPrice"];
+                const whatIfInputs = ["quantity", "buyPrice", "sellPrice"];
+                const intradayInputs = [
+                    "intradayQuantity",
+                    "intradayBuyPrice",
+                    "intradaySellPrice",
+                ];
 
-            let autoCalculationWorks = true;
-            try {
                 avgInputs.forEach((id) =>
                     document
                         .getElementById(id)
@@ -245,138 +413,25 @@
                         .getElementById(id)
                         .addEventListener("input", calculateIntraday),
                 );
-            } catch (e) {
-                autoCalculationWorks = false;
+            };
+
+            // Service Worker Registration
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker
+                    .register("/TCalac/sw.js", { scope: "/TCalac/" })
+                    .then((registration) => {
+                        console.log(
+                            "Service Worker registered with scope:",
+                            registration.scope,
+                        );
+                    })
+                    .catch((error) => {
+                        console.error(
+                            "Service Worker registration failed:",
+                            error,
+                        );
+                    });
             }
-
-            if (!autoCalculationWorks) {
-                calculateButton.style.display = "block";
-            }
-        };
-
-        function calculateAverage() {
-            const quantity =
-                parseFloat(document.getElementById("avgQuantity").value) ||
-                0;
-            const price =
-                parseFloat(document.getElementById("avgPrice").value) || 0;
-            const feeRate = 1.12;
-
-            if (quantity <= 0 || price <= 0) {
-                document.getElementById("avgResult").innerHTML =
-                    `<p style="color: red;">Please enter valid values.</p>`;
-                return;
-            }
-
-            const orderValue = quantity * price;
-            const fees = (feeRate / 100) * orderValue;
-            const totalCost = orderValue + fees;
-            const avgPrice = totalCost / quantity;
-
-            document.getElementById("avgResult").innerHTML = `
-          <p>Order Value: <span>Rs. ${orderValue.toFixed(2)}</span></p>
-          <p>Fees: <span>Rs. ${fees.toFixed(2)}</span></p>
-          <p>Total Cost: <span>Rs. ${totalCost.toFixed(2)}</span></p>
-          <p>Average Price: <span>Rs. ${avgPrice.toFixed(2)}</span></p>`;
-        }
-
-        function calculateWhatIf() {
-            const quantity =
-                parseFloat(document.getElementById("quantity").value) || 0;
-            const buyPrice =
-                parseFloat(document.getElementById("buyPrice").value) || 0;
-            const sellPrice =
-                parseFloat(document.getElementById("sellPrice").value) || 0;
-            const feeRate = 1.12;
-
-            if (quantity <= 0 || buyPrice <= 0 || sellPrice <= 0) {
-                document.getElementById("whatIfResult").innerHTML =
-                    `<p style="color: red;">Please enter valid values.</p>`;
-                return;
-            }
-
-            const buyValue = quantity * buyPrice;
-            const buyFees = (feeRate / 100) * buyValue;
-            const totalBuyCost = buyValue + buyFees;
-            const avgBuyPrice = totalBuyCost / quantity;
-
-            const sellValue = quantity * sellPrice;
-            const sellFees = (feeRate / 100) * sellValue;
-            const totalSellProceeds = sellValue - sellFees;
-            const avgSellPrice = totalSellProceeds / quantity;
-
-            const profitLoss = totalSellProceeds - totalBuyCost;
-
-            document.getElementById("whatIfResult").innerHTML = `
-          <p>Buy Value: <span>Rs. ${buyValue.toFixed(2)}</span></p>
-          <p>Total Buy Cost: <span>Rs. ${totalBuyCost.toFixed(2)}</span></p>
-          <p>Avg Bought Price: <span>Rs. ${avgBuyPrice.toFixed(2)}</span></p>
-          <p>Sell Value: <span>Rs. ${sellValue.toFixed(2)}</span></p>
-          <p>Total Sell Proceeds: <span>Rs. ${totalSellProceeds.toFixed(2)}</span></p>
-          <p>Avg Sold Price: <span>Rs. ${avgSellPrice.toFixed(2)}</span></p>
-          <p><strong>Profit/Loss:</strong> <span>Rs. ${profitLoss.toFixed(2)}</span></p>`;
-        }
-
-        function calculateIntraday() {
-            const quantity =
-                parseFloat(
-                    document.getElementById("intradayQuantity").value,
-                ) || 0;
-            const buyPrice =
-                parseFloat(
-                    document.getElementById("intradayBuyPrice").value,
-                ) || 0;
-            const sellPrice =
-                parseFloat(
-                    document.getElementById("intradaySellPrice").value,
-                ) || 0;
-
-            const feeRate = 1.12;
-            const stlRate = 0.3;
-
-            if (quantity <= 0 || buyPrice <= 0 || sellPrice <= 0) {
-                document.getElementById("intradayResult").innerHTML =
-                    `<p style="color: red;">Please enter valid values.</p>`;
-                return;
-            }
-
-            const buyValue = quantity * buyPrice;
-            const sellValue = quantity * sellPrice;
-
-            const applicableFees = (feeRate / 100) * buyValue;
-            const stlFee = (stlRate / 100) * sellValue;
-
-            const totalBuyCost = buyValue + applicableFees;
-            const totalSellProceeds = sellValue - stlFee;
-
-            const avgBuyPrice = totalBuyCost / quantity;
-            const avgSellPrice = totalSellProceeds / quantity;
-
-            const intradayProfitLoss = totalSellProceeds - totalBuyCost;
-
-            document.getElementById("intradayResult").innerHTML = `
-          <p>Buy Value: <span>Rs. ${buyValue.toFixed(2)}</span></p>
-          <p>Sell Value: <span>Rs. ${sellValue.toFixed(2)}</span></p>
-          <p>Applicable Fees (once): <span>Rs. ${applicableFees.toFixed(2)}</span></p>
-          <p>Share Transaction Levy (STL): <span>Rs. ${stlFee.toFixed(2)}</span></p>
-          <p>Total Buy Cost: <span>Rs. ${totalBuyCost.toFixed(2)}</span></p>
-          <p>Total Sell Proceeds: <span>Rs. ${totalSellProceeds.toFixed(2)}</span></p>
-          <p>Average Bought Price: <span>Rs. ${avgBuyPrice.toFixed(2)}</span></p>
-          <p>Average Sold Price: <span>Rs. ${avgSellPrice.toFixed(2)}</span></p>
-          <p><strong>Profit/Loss:</strong> <span>Rs. ${intradayProfitLoss.toFixed(2)}</span></p>`;
-        }
-
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register(
-                "/TCalac/sw.js",
-                { scope: "/TCalac/" }
-            ).then((registration) => {
-                console.log("Service Worker registered with scope:", registration.scope);
-            }).catch((error) => {
-                console.error("Service Worker registration failed:", error);
-            });
-        }
-    </script>
-</body>
-
+        </script>
+    </body>
 </html>
