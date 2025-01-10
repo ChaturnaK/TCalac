@@ -34,7 +34,8 @@
                 font-size: 1rem;
                 color: white;
             }
-            input[type="number"] {
+            input[type="number"],
+            input[type="tel"] {
                 width: 100%;
                 padding: 10px;
                 margin-top: 5px;
@@ -94,7 +95,8 @@
                 h2 {
                     font-size: 1.2rem;
                 }
-                input[type="number"] {
+                input[type="number"],
+                input[type="tel"] {
                     font-size: 0.9rem;
                 }
                 .result {
@@ -108,7 +110,8 @@
                 h2 {
                     font-size: 1rem;
                 }
-                input[type="number"] {
+                input[type="number"],
+                input[type="tel"] {
                     padding: 8px;
                     font-size: 0.85rem;
                 }
@@ -122,118 +125,120 @@
         </style>
     </head>
     <body>
-        <body>
-            <!-- Average Share Price Calculator -->
-            <div class="container">
-              <h2>Average Share Price Calculator</h2>
-              <label for="avgQuantity">Quantity of Shares:</label>
-              <input
+        <!-- Average Share Price Calculator -->
+        <div class="container">
+            <h2>Average Share Price Calculator</h2>
+            <label for="avgQuantity">Quantity of Shares:</label>
+            <input
                 type="tel"
                 id="avgQuantity"
                 inputmode="decimal"
-                pattern="^[0-9]+([.,][0-9]+)?$"
+                pattern="[0-9]*"
                 step="1"
                 placeholder="Enter quantity of shares"
-              />
+            />
 
-              <label for="avgPrice">Price per Share (Rs.):</label>
-              <input
+            <label for="avgPrice">Price per Share (Rs.):</label>
+            <input
                 type="tel"
                 id="avgPrice"
                 inputmode="decimal"
-                pattern="^[0-9]+([.,][0-9]+)?$"
+                pattern="[0-9]*"
                 step="0.01"
                 placeholder="Enter price per share"
-              />
+            />
 
-              <div class="result" id="avgResult" aria-live="polite"></div>
-            </div>
+            <div class="result" id="avgResult" aria-live="polite"></div>
+        </div>
 
-          <!-- What-If Share Calculator -->
-          <div class="container">
+        <!-- What-If Share Calculator -->
+        <div class="container">
             <h2>What-If Share Calculator</h2>
             <label for="quantity">Quantity of Shares:</label>
             <input
-              type="number"
-              id="quantity"
-              inputmode="decimal"
-              pattern="[0-9]*[.,]?[0-9]*"
-              step="1"
-              placeholder="Enter quantity of shares"
+                type="number"
+                id="quantity"
+                inputmode="decimal"
+                pattern="[0-9]*"
+                step="1"
+                placeholder="Enter quantity of shares"
             />
 
             <label for="buyPrice">Buy Price per Share (Rs.):</label>
             <input
-              type="number"
-              id="buyPrice"
-              inputmode="decimal"
-              pattern="[0-9]*[.,]?[0-9]*"
-              step="0.01"
-              placeholder="Enter buy price per share"
+                type="number"
+                id="buyPrice"
+                inputmode="decimal"
+                pattern="[0-9]*"
+                step="0.01"
+                placeholder="Enter buy price per share"
             />
 
             <label for="sellPrice">Sell Price per Share (Rs.):</label>
             <input
-              type="number"
-              id="sellPrice"
-              inputmode="decimal"
-              pattern="[0-9]*[.,]?[0-9]*"
-              step="0.01"
-              placeholder="Enter sell price per share"
+                type="number"
+                id="sellPrice"
+                inputmode="decimal"
+                pattern="[0-9]*"
+                step="0.01"
+                placeholder="Enter sell price per share"
             />
 
             <button
-              id="zeroLossWhatIfButton"
-              onclick="zeroLossWhatIf()"
-              title="Adjust sell price to break even based on input values">
-              Break-Even Sell
+                id="zeroLossWhatIfButton"
+                onclick="zeroLossWhatIf()"
+                title="Adjust sell price to break even based on input values"
+            >
+                Break-Even Sell
             </button>
 
             <div class="result" id="whatIfResult" aria-live="polite"></div>
-          </div>
+        </div>
 
-          <!-- Intraday Trading Calculator -->
-          <div class="container">
+        <!-- Intraday Trading Calculator -->
+        <div class="container">
             <h2>Intraday Trading Calculator</h2>
             <label for="intradayQuantity">Quantity of Shares:</label>
             <input
-              type="number"
-              id="intradayQuantity"
-              inputmode="decimal"
-              pattern="[0-9]*[.,]?[0-9]*"
-              step="1"
-              placeholder="Enter quantity of shares"
+                type="number"
+                id="intradayQuantity"
+                inputmode="decimal"
+                pattern="[0-9]*"
+                step="1"
+                placeholder="Enter quantity of shares"
             />
 
             <label for="intradayBuyPrice">Buy Price per Share (Rs.):</label>
             <input
-              type="number"
-              id="intradayBuyPrice"
-              inputmode="decimal"
-              pattern="[0-9]*[.,]?[0-9]*"
-              step="0.01"
-              placeholder="Enter buy price per share"
+                type="number"
+                id="intradayBuyPrice"
+                inputmode="decimal"
+                pattern="[0-9]*"
+                step="0.01"
+                placeholder="Enter buy price per share"
             />
 
             <label for="intradaySellPrice">Sell Price per Share (Rs.):</label>
             <input
-              type="number"
-              id="intradaySellPrice"
-              inputmode="decimal"
-              pattern="[0-9]*[.,]?[0-9]*"
-              step="0.01"
-              placeholder="Enter sell price per share"
+                type="number"
+                id="intradaySellPrice"
+                inputmode="decimal"
+                pattern="[0-9]*"
+                step="0.01"
+                placeholder="Enter sell price per share"
             />
 
             <button
-              id="zeroLossIntradayButton"
-              onclick="zeroLossIntraday()"
-              title="Adjust sell price to break even for intraday trades">
-              Break-Even Sell
+                id="zeroLossIntradayButton"
+                onclick="zeroLossIntraday()"
+                title="Adjust sell price to break even for intraday trades"
+            >
+                Break-Even Sell
             </button>
 
             <div class="result" id="intradayResult" aria-live="polite"></div>
-          </div>
+        </div>
+
         <script>
             // Utility Functions
             const feeRate = 1.12;
@@ -357,6 +362,58 @@
         <p><strong>Profit/Loss:</strong> <span>Rs. ${intradayProfitLoss.toFixed(2)}</span></p>`;
             }
 
+            function zeroLossCommon({
+                quantity,
+                totalBuyCost,
+                feeRate,
+                computeProfitLoss,
+                sellPriceElementId,
+                recalcFunction,
+            }) {
+                // Calculate the ideal sell price based on the provided feeRate.
+                const idealSellPrice =
+                    totalBuyCost / (quantity * (1 - feeRate / 100));
+
+                // Determine two candidate prices by rounding down and up to two decimals.
+                const candidate1 = Math.floor(idealSellPrice * 100) / 100;
+                const candidate2 = Math.ceil(idealSellPrice * 100) / 100;
+
+                // Compute profit/loss for both candidates using the provided function.
+                const profit1 = computeProfitLoss(candidate1);
+                const profit2 = computeProfitLoss(candidate2);
+
+                let chosenSellPrice;
+                let nonNegativeCandidates = [];
+                if (profit1 >= 0)
+                    nonNegativeCandidates.push({
+                        price: candidate1,
+                        profit: profit1,
+                    });
+                if (profit2 >= 0)
+                    nonNegativeCandidates.push({
+                        price: candidate2,
+                        profit: profit2,
+                    });
+
+                if (nonNegativeCandidates.length > 0) {
+                    // Select the candidate with the smallest non-negative profit.
+                    chosenSellPrice = nonNegativeCandidates.reduce(
+                        (prev, curr) =>
+                            curr.profit < prev.profit ? curr : prev,
+                    ).price;
+                } else {
+                    // If neither candidate gives a non-negative profit, pick the one with the least absolute profit/loss.
+                    chosenSellPrice =
+                        Math.abs(profit1) <= Math.abs(profit2)
+                            ? candidate1
+                            : candidate2;
+                }
+
+                // Set the chosen sell price and recalculate the results.
+                document.getElementById(sellPriceElementId).value =
+                    chosenSellPrice.toFixed(2);
+                recalcFunction();
+            }
             // Zero Loss Functions
             function zeroLossWhatIf() {
                 const quantity =
@@ -367,20 +424,26 @@
                     alert("Please enter valid quantity and buy price first.");
                     return;
                 }
+
                 const totalBuyCost = calculateTotalBuyCost(
                     quantity,
                     buyPrice,
                     feeRate,
                 );
-                const newSellPrice = calculateNewSellPrice(
-                    totalBuyCost,
+
+                zeroLossCommon({
                     quantity,
-                    feeRate,
-                    false,
-                );
-                document.getElementById("sellPrice").value =
-                    newSellPrice.toFixed(2);
-                calculateWhatIf();
+                    totalBuyCost,
+                    feeRate: feeRate, // For What-If, we use the standard fee rate.
+                    sellPriceElementId: "sellPrice",
+                    recalcFunction: calculateWhatIf,
+                    computeProfitLoss: function (sellPrice) {
+                        const sellValue = quantity * sellPrice;
+                        const sellFees = (feeRate / 100) * sellValue;
+                        const totalSellProceeds = sellValue - sellFees;
+                        return totalSellProceeds - totalBuyCost;
+                    },
+                });
             }
 
             function zeroLossIntraday() {
@@ -396,23 +459,28 @@
                     alert("Please enter valid quantity and buy price first.");
                     return;
                 }
+
                 const totalBuyCost = calculateTotalBuyCost(
                     quantity,
                     buyPrice,
                     feeRate,
                 );
-                const newSellPrice = calculateNewSellPrice(
-                    totalBuyCost,
+
+                zeroLossCommon({
                     quantity,
-                    stlRate,
-                    true,
-                );
-                document.getElementById("intradaySellPrice").value =
-                    newSellPrice.toFixed(2);
-                calculateIntraday();
+                    totalBuyCost,
+                    feeRate: stlRate, // For Intraday, we pass the STL rate to mimic intraday fee structure.
+                    sellPriceElementId: "intradaySellPrice",
+                    recalcFunction: calculateIntraday,
+                    computeProfitLoss: function (sellPrice) {
+                        const sellValue = quantity * sellPrice;
+                        const stlFee = (stlRate / 100) * sellValue;
+                        const totalSellProceeds = sellValue - stlFee;
+                        return totalSellProceeds - totalBuyCost;
+                    },
+                });
             }
 
-            // Event Listeners
             window.onload = () => {
                 const avgInputs = ["avgQuantity", "avgPrice"];
                 const whatIfInputs = ["quantity", "buyPrice", "sellPrice"];
@@ -439,7 +507,6 @@
                 );
             };
 
-            // Service Worker Registration
             if ("serviceWorker" in navigator) {
                 navigator.serviceWorker
                     .register("/TCalac/sw.js", { scope: "/TCalac/" })
